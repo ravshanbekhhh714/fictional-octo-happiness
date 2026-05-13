@@ -57,7 +57,9 @@ async def handle_question_answer(message: Message, state: FSMContext):
                         f"Yosh: {candidate.age}, Manzil: {candidate.location}, " \
                         f"Tajriba: {candidate.experience}, Soha: {field_name if 'field_name' in locals() else 'Noma''lum'}"
             
+            print(f"DEBUG: Generating AI question for {candidate.first_name} (Index: {q_index+1})")
             next_q_text = await generate_next_question(cand_info, qa_history, q_index + 1)
+            print(f"DEBUG: AI Question: {next_q_text}")
             
             await message.answer(next_q_text)
             await state.update_data(current_q_index=q_index + 1, current_q_text=next_q_text)

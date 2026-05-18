@@ -17,3 +17,5 @@ COPY . .
 
 # Setting the pythonpath so modules can be imported
 ENV PYTHONPATH=/app
+
+CMD ["python", "railway_start.py"]
